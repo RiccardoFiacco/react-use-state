@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { languages } from '../assets/languages'
-
+import {Button} from './Button/Button.jsx'
 export function Main(){
     console.log(languages)
     const [value, setValue] = useState(null)
@@ -13,7 +13,7 @@ export function Main(){
             languages.map((language)=>{
                 return(
                     <div className="col" onClick={()=>{setValue(language.id -1); console.log(language.id)}} key={language.id}>
-                        <button type="button" className="btn btn-primary">{language.title}</button>
+                        <Button title = {language.title}/>
                     </div>               
                 )              
             })
