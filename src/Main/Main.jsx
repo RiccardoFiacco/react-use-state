@@ -4,25 +4,19 @@ import { Button } from "./Button/Button.jsx";
 import { Card } from "./Card/Card.jsx";
 export function Main() {
   console.log(languages);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState(null);// setto a null per non impostare automaticamente una card
   let lenguageClicked = languages[value];
 
-  console.log(lenguageClicked);
-  
   return (
     <div className="container">
       <div className="row mt-5">
         {languages.map((language) => {
           return (
-            <div
-              className="col"
-              onClick={() => {
-                setValue(language.id - 1);
-                console.log(language.id);
-              }}
-              key={language.id}
-            >
-              <Button title={language.title} />
+            <div className="col" key={language.id}>
+              <Button 
+               callback={() => setValue(language.id - 1)} //passo una callback che poi riverra eseguita qui
+               title={language.title} 
+              />
             </div>
           );
         })}
