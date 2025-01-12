@@ -16,11 +16,11 @@ export function Main() {
   return (
     <div className="container">
       <div className="row mt-5">
-        {languages.map((language,i) => {
+        {languages.map((language,i) => { //per ogni elemento di lenguages andiamo a creare un ritornare un componente button
           return (
             <div className="col" key={language.id}>
               <Button 
-               callback={() => clickHandle(language.id)} //passo una callback che poi riverra eseguita qui
+               callback={() => clickHandle(language.id)} //passo una callback che poi riverra eseguita qui dove andiamo a settare il valore 
                title={language.title} 
                //bgColor = {i=== lenguageClicked ? style.active : ''}
               />
@@ -28,8 +28,8 @@ export function Main() {
           );
         })}
       </div>
-      {lenguageClicked ? 
-        <Card
+      {lenguageClicked ? //se la var esiste
+        <Card //renderizzo un componente che riceve come props titolo e descrizione della variabile 
           title={lenguageClicked.title}
           description={lenguageClicked.description}
         />
